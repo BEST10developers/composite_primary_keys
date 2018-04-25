@@ -16,6 +16,7 @@ module ActiveRecord
       def expand_hash_conditions_for_aggregates(attrs)
         expanded_attrs = {}
         attrs.each do |attr, value|
+          next unless attr
           # CPK
           # if aggregation = reflect_on_aggregation(attr.to_sym)
           if attr.is_a?(CompositePrimaryKeys::CompositeKeys)
