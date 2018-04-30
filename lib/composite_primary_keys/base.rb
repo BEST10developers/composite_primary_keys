@@ -16,7 +16,9 @@ module ActiveRecord
 
       # Don't like this method name, but its modeled after how AR does it
       def reset_primary_keys
+        Rails.logger.debug "[reset_primary_keys] called in #{self}"
         if self != base_class
+          Rails.logger.debug "[reset_primary_keys] base_class.primary_keys: #{base_class.primary_keys}"
           self.primary_keys = base_class.primary_keys
         end
       end
