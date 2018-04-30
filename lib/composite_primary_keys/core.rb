@@ -23,7 +23,6 @@ module ActiveRecord
         return super unless ids.length == 1
         # Allow symbols to super to maintain compatibility for deprecated finders until Rails 5
         return super if ids.first.kind_of?(Symbol)
-        Rails.logger.debug "primary_key of #{self}: #{primary_key}"
         return super if block_given? ||
           primary_key.nil? ||
           default_scopes.any? ||
