@@ -22,6 +22,7 @@ module ActiveRecord
       end
 
       def primary_key_with_composite_key_support=(keys)
+        Rails.logger.debug("primary_key_with_composite_key_support callend in #{self}. keys: #{keys}")
         unless keys.kind_of?(Array)
           self.primary_key_without_composite_key_support = keys
           return
